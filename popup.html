@@ -7,42 +7,69 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            width: 200px;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(103, 169, 255);
         }
-        input {
-            width: calc(100% - 22px);
+        #display {
+            width: 100%;
             margin-bottom: 10px;
-            padding: 10px;
+            padding: 6px;
             font-size: 16px;
+            background-color: #ffffff;
+        }
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) 1fr;
+            grid-gap: 10px;
         }
         button {
-            width: 46%;
-            margin: 2%;
-            padding: 10px;
+            padding: 15px;
             font-size: 16px;
             cursor: pointer;
+        }
+        .number {
+            grid-column: span 1;
+        }
+        .operation {
+            background-color: #f2f2f2;
+            grid-column: span 1;
+        }
+        .equal {
+            background-color: #d4d4d4;
+            grid-column: span 2;
         }
     </style>
 </head>
 <body>
     <input type="text" id="display" disabled />
-    <div>
-        <button onclick="appendNumber(7)">7</button>
-        <button onclick="appendNumber(8)">8</button>
-        <button onclick="appendNumber(9)">9</button>
-        <button onclick="chooseOperation('/')">/</button>
-        <button onclick="appendNumber(4)">4</button>
-        <button onclick="appendNumber(5)">5</button>
-        <button onclick="appendNumber(6)">6</button>
-        <button onclick="chooseOperation('*')">*</button>
-        <button onclick="appendNumber(1)">1</button>
-        <button onclick="appendNumber(2)">2</button>
-        <button onclick="appendNumber(3)">3</button>
-        <button onclick="chooseOperation('-')">-</button>
-        <button onclick="appendNumber(0)">0</button>
-        <button onclick="clearDisplay()">C</button>
-        <button onclick="calculateResult()">=</button>
-        <button onclick="chooseOperation('+')">+</button>
+    <div class="calculator">
+        <button class="number" data-number="1">1</button>
+        <button class="number" data-number="2">2</button>
+        <button class="number" data-number="3">3</button>
+        <button class="operation" id="clear">C</button>
+
+        <button class="number" data-number="4">4</button>
+        <button class="number" data-number="5">5</button>
+        <button class="number" data-number="6">6</button>
+        <button class="operation" data-operation="*">*</button>
+
+        <button class="number" data-number="7">7</button>
+        <button class="number" data-number="8">8</button>
+        <button class="number" data-number="9">9</button>
+        <button class="operation" data-operation="-">-</button>
+
+        <button class="number" data-number="0">0</button>
+        <button class="operation" data-operation="+">+</button>
+        <button class="operation" data-operation="^">^</button>
+        <button class="operation" data-operation="log">log</button>
+        <button class="operation" data-operation="e">e</button>
+        <button class="operation" data-operation="/">/</button>
+        <button class="equal" id="equals" style="background-color: rgb(0, 255, 0);">=</button>
+
+
     </div>
     <script src="popup.js"></script>
 </body>
